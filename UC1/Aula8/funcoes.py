@@ -130,3 +130,29 @@ print(f"Dados gerados: {dados_aleatorios}")
 #     else:
 #         # Arredondando para 2 casas decimais para ficar bonito
 #         return round(a / b, 2)
+
+# --- Nossa Integração ---
+
+QTD_DE_DADOS = 5 # Quantos pares de números queremos testar
+
+print("Gerando dados...")
+# Geramos duas listas de dados independentes
+lista1 = gerar_dados(QTD_DE_DADOS, 1, 20)
+lista2 = gerar_dados(QTD_DE_DADOS, 0, 10) # Permitindo 0 na lista 2 para testar a divisão
+
+print(f"Lista 1: {lista1}")
+print(f"Lista 2: {lista2}")
+print("-"*40)
+print("Iniciando Cálculos (elemento a elemento):")
+
+# Vamos usar um loop 'for' para "caminhar" pelas listas
+# A função 'zip' é usada para parear elementos de duas listas
+for num1, num2 in zip(lista1, lista2):
+    
+    print(f"\nPar: ({num1}, {num2})")
+    
+    # Agora, chamamos nossas funções de cálculo com esses números
+    print(f"Soma:       {num1} + {num2} = {somar(num1, num2)}")
+    print(f"Subtração:  {num1} - {num2} = {subtrair(num1, num2)}")
+    print(f"Multipl.:   {num1} * {num2} = {multiplicar(num1, num2)}")
+    print(f"Divisão:    {num1} / {num2} = {dividir(num1, num2)}")
