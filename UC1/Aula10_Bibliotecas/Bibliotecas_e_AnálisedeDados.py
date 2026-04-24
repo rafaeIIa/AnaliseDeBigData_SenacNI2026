@@ -117,3 +117,57 @@ except Exception as e:
     print(f"Ocorreu um erro ao ler o arquivo CSV: {e}")
 finally:
     print("Leitura de CSV concluída.\n")
+
+
+ # --- 5. Manipulando o DataFrame ---
+
+# Este 'if' garante que o código só execute se o CSV foi lido com sucesso
+if df_disco is not None:
+    try:
+        print("--- Explorando e Manipulando Dados ---")
+        
+        # 1. Ajustando a exibição (útil para ver mais linhas)
+        # pd.options.display.max_rows = 10
+        # print("\n--- Exibindo com max_rows=10 ---")
+        # print(df_disco)
+        
+        # 2. Selecionando uma coluna específica (retorna uma Série)
+        print("\n--- Selecionando a coluna 'Track Name' (as 5 primeiras) ---")
+        print(df_disco['Track Name'].head())
+
+        # 3. Filtragem de Dados
+        # Vamos encontrar todas as músicas do 'ABBA'
+        print("\n--- Filtrando: Músicas do 'ABBA' ---")
+        # Criamos uma condição (filtro)
+        filtro_abba = df_disco['Artist Name(s)'] == 'ABBA'
+        df_abba = df_disco[filtro_abba]
+        
+        print(df_abba[['Artist Name(s)', 'Track Name', 'Album Name']])
+
+        # 4. Criando uma nova coluna
+        # Vamos criar uma coluna "Popularity_Category"
+        print("\n--- Criando uma nova coluna 'Popularity_Category' ---")
+        
+        # Exemplo simples: se a popularidade (no Spotify) for > 60, é 'Alta'
+        # Nota: Isso é uma introdução. Usaremos .apply() ou .loc[] no futuro.
+        # Por enquanto, vamos criar uma coluna baseada em outra.
+        df_disco['Popularity_x10'] = df_disco['Popularity'] * 10
+        print(df_disco[['Track Name', 'Popularity', 'Popularity_x10']].head())
+
+        # 5. Salvando em um novo arquivo CSV
+        # Vamos salvar nosso DataFrame filtrado do ABBA
+        print("\n--- Salvando dados filtrados em 'abba_disco_tracks.csv' ---")
+        # index=False evita que o pandas salve o índice do DataFrame como uma coluna
+        df_abba.to_csv('abba_disco_tracks.csv', index=False)
+        print("Arquivo 'abba_disco_tracks.csv' salvo com sucesso!")
+
+    except KeyError as e:
+        print(f"\n--- ERRO de Chave ---")
+        print(f"A coluna {e} não foi encontrada no DataFrame.")
+        print("Verifique se o nome da coluna está digitado corretamente.")
+    except Exception as e:
+        print(f"Ocorreu um erro durante a manipulação: {e}")
+    finally:
+        print("Manipulação de dados concluída.\n")
+else:
+    print("O DataFrame 'df_disco' não foi carregado. As etapas de manipulação foram puladas.")
