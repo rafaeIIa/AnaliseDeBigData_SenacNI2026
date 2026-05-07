@@ -1,0 +1,22 @@
+CREATE DATABASE pocos_exploratorios_jan26;
+
+CREATE TABLE pocos_exploratorios(
+id_poco VARCHAR (50),
+id_bloco VARCHAR(50),
+localizacao_bacia VARCHAR (50),
+regiao_bacia VARCHAR (50),
+estado VARCHAR(50),
+ambiente VARCHAR (50),
+operador VARCHAR (50),
+data_inicio VARCHAR (50),
+data_conclusao DATE,
+profundidade_m DECIMAL (10, 2),
+pre_sal VARCHAR (5), 
+notificacao_descoberta VARCHAR (5),
+data_primeira_descoberta DATE,
+fluido_notificacao_descoberta VARCHAR (50)
+);
+
+
+
+
