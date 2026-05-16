@@ -20,7 +20,7 @@ print(df_pocos_copy.info())
 
 # Renomeando maior parte das colunas
 df_pocos_copy.columns = ['id_poco', 'id_bloco', 'localizacao_bacia', 'regiao_bacia', 
-'estado', 'ambiente', 'operador', 'data_inicio', 'data_conclusao', 'profundidade(m)',
+'estado', 'ambiente', 'operador', 'data_inicio', 'data_conclusao', 'profundidade_m',
 'pre_sal',  'notificacao_descoberta', 'data_primeira_descoberta', 'fluido_notificacao_descoberta']
 
 #### INÍCIO DA LIMPEZA ######
@@ -29,7 +29,7 @@ df_pocos_copy.columns = ['id_poco', 'id_bloco', 'localizacao_bacia', 'regiao_bac
 df_pocos_copy['data_inicio'] = pd.to_datetime(df_pocos_copy['data_inicio'], dayfirst=True, errors='coerce')
 df_pocos_copy['data_conclusao'] = pd.to_datetime(df_pocos_copy['data_conclusao'], dayfirst=True, errors='coerce')
 df_pocos_copy['data_primeira_descoberta'] = pd.to_datetime(df_pocos_copy['data_primeira_descoberta'], dayfirst=True, errors='coerce')
-df_pocos_copy['profundidade(m)'] = pd.to_numeric(df_pocos_copy['profundidade(m)'], errors='coerce')
+df_pocos_copy['profundidade_m'] = pd.to_numeric(df_pocos_copy['profundidade_m'], errors='coerce')
 
 # Verificando o total de linhas por coluna com valor NULO
 print(df_pocos_copy.isnull().sum())
