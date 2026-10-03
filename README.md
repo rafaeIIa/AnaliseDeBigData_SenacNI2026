@@ -4,7 +4,7 @@ Criado para documentar minha evolução no processamento, análise e visualizaç
 
 ---
 
-## 📚 Estrutura do Curso e Habilidades Desenvolvidas
+## Estrutura do Curso e Habilidades Desenvolvidas
 
 ### [📁 UC1 - Fundamentos e Processamento de Dados](./UC1)
 Nesta primeira etapa, o foco foi estruturar o raciocínio analítico e aprender a manipular bases de dados brutas para extrair os primeiros insights.
@@ -22,7 +22,7 @@ Na segunda etapa, o foco avançou para a construção de soluções de dados mai
 
 ---
 
-## 🛠️ Tecnologias e Ferramentas
+## Tecnologias e Ferramentas
 Ao longo dos projetos destas duas UCs, as principais tecnologias utilizadas foram:
 
 *   **Linguagens:** Python
